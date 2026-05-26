@@ -107,30 +107,10 @@ input { font-family: inherit; }
 .logo-T {
   width: 32px;
   height: 32px;
-  background: var(--magenta);
   border-radius: 6px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  object-fit: cover;
   box-shadow: 0 4px 14px var(--magenta-glow);
-}
-
-.logo-T::before {
-  content: '';
-  position: absolute;
-  width: 16px;
-  height: 3px;
-  background: white;
-  top: 9px;
-}
-.logo-T::after {
-  content: '';
-  position: absolute;
-  width: 3px;
-  height: 16px;
-  background: white;
-  top: 9px;
 }
 
 .brand-meta h1 {
@@ -1182,7 +1162,7 @@ main {
 <nav class="topnav">
   <div class="topnav-inner">
     <div class="brand">
-      <div class="logo-T"></div>
+      <img class="logo-T" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAIAAABt+uBvAAAGc0lEQVR42u2cXWhcRRTH/+fM3Lu7Sb8Sa0ubUhRj/XjzG6lgQR+sYKGKgijoU98F0VdfBd+lJVIF9UUU9UWxCBZsi6a2ImhNaW2pTdIkJlnTTbP33pk5PuwmLXaza9m5m62ZeZ6de/Z3z9ecOXPpgn4LxiGMhkMzBwjNRwAUAAVAAVAAFAAFQAFQABRGABQABUABUAAUAP3Phva2ElF3/TORrgIkIrar+BAYoC4AxCQuje/e0v/BsxAvIrX/sgDCzCufpb+PE8dwsuIaJLS2ED880F0atLYASNeYmBVYaa1BIiICtziNiKiV8xIRWXQoAjCIqNVPAAJsV/kgAhQ1A+QEItB84ybYCIZ1IMJyi9XE8GTsOn+PIHCAIoDcXJKdHEtPjGUj025i3s3NR3ds6juwpzFZAQiz+77Mzk7yul7e3BvddUt8/9bovq28rlBXW849euYMyAmYoJAOj1YODC98ddqOlgWm5t4FaXG82nyB5PsL1VN/EGLAASBoNbChtHvHmn0PxQ8NXH3ETQnIOih2U1dm3/x6/v0TIikhJo6JCzXTEadoTdzCwNbErErEhbobcmJH5y4PHa28d7z31fv73n6Kb+2pPehmA2QFitOfxv96/qPs3ARTL+kIVuCkHneZ4FzrGOwE1kGuziTSpCJYqRw8lnz3x8ZPXoof2AIrULnoEedlWYqyny9NPjlkzs1wtBYiMM5Pdru4FEdrzbmZySeHsp8vQVGb+U4HAYkAcLMLU3s/duUrpAvI8kmyM0u64MpXpvZ+7GYXPG4vcgbkBEzlNw5l58cpKuXbGWEcRaXs/Hj5jUPgXJSI83A92a+T8weHWfXA5L9BM5ZVz/zB4ezXSSj2lR/mBkgEQOXdYWcTEENy5wMBiJ1NKu8O52Fl7FlYzbJgFr4YIcQ5ec2GRk2IF74YkQUDzfD6Wtiz9wGyXy6Zi9NEuqOASJuL09kvl5bE6EZA4gAgPTEuyHLKSpYdigRZemJ8SYzujWLm9PRKlTjyeLQnQIJ6lmzFjl1eoboZ2bHLS2L4ckSethqaoIiUAiBVU0fWyVGrF1XNkhjQ1D2ASP5OkiMXaiminagAaiUAKTtRWRJD/k66oybthBBlI1MTj+1frJ0pRgTX2dZi5xhR+sOf14pBiNqPaL5280QcXRvsV2j4F8NfuWMlueQoRjhZ7YwGEdCyab9Wt/dkSa3LrM55CRSeAIlzttqKYURQnnbERmzWyjRiL/ahPeiOON7QU3r83uYT0+NjZrRMpNrSIyIRqwf64ge3Np+YHD7vylfaryi0D4hEjN5xy8bPX2w+ceblTy9/9COpHpg2RFYkJi3uuq3/w+eaT5x45EDy4xxRoU279mRiplZaXyY1sw6KJfVWPJPUwrplDzNqYpiuO1nlZierin2e8BHV0TQB5OlpIcwHQAFQABQABUCrfi8GQJavcor4PxSurdlwWelCQEwgWjb10KqWBHuTWhGI6ss2TMrgrbHKU0Xxt6mJnUNNXh0RspFpRgzbXqXROkZc/ebs5M6hZkpJyE5NdU9FkWQ+SY6ebZVsa6Dtw2gBwG66Uj1ablk86I6a9KKG1PvGmuqaN+9A3LHH+aoHwXtbRZc8LoT5ACgACoBWJ6BaCNa8fPIrVyfQatQgEghvKAK1Jvrr4zQA8IairOg1qxXVIHJ6sL++sWq42wL0YD/IrUoNEkCosOv25rMKu26HEGS1AdIsNom2bSrtHoRI49q7YoiUdg9G2zaJTRa91f8SkCIohmJohmYoFpMA6Nu/h3rjq/frrrdBB+qN+/c/A0BMcu0KUNyZNkj1Gu/KuzFDJBXJRIy4TFwqYuN7Nm/84IXS03fWbnU0q6I40Ts2Fh7enp4cM5Nlcak4I2JEDMT6OstuIgDl/B1FgVKFR7chUqSJ+op6sL+wc3vxiUEqqP961avWMZbY6rdnkiMXzJkZma2KEWQ2OXYR1uYY4zTnCYgAcbSutHX0db7+XtgNXWBqNNlV0rGBd2RuIceWfs0duJIJmUukoCEOqN9rpVoF8oZ25MaJW0qJBMQyl3QguuUPiEDrixRx2wHh3zVUWl/sQH6UPyDjksPnua8IEW/H8yIgcrPVDnyFljrwsdvFW7x5aGfOL7gTPgggivLLIG5+E+vI3wj1oAAoAAqAAqAAKIwAKAAKgAKgACgACoACoDACoP84NJhy/czeTa4/9A9Keuz/z9zHrgAAAABJRU5ErkJggg==" alt="Deutsche Telekom" />
       <div class="brand-meta">
         <h1>Microsoft Sales Supporter</h1>
         <p>M365 · Account Insights</p>
